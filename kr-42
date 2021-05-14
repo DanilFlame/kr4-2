@@ -1,0 +1,77 @@
+using System;
+
+namespace kr4_2
+{
+    struct Book
+    {
+        public string name; // назви
+        public string author; // автори
+
+    }
+
+    struct Edition
+    {
+        public string edition_name; // видання
+        public int year; // рік випуску 
+        public double price; // ціна
+    }
+
+       class Program
+        {
+            static void Main()
+            {
+                var rand = new Random(); // random
+                Book[] B; // оголошення структурної змінної
+                B = new Book[5]; // виділення пам'яті для масиву
+
+                for (int i = 0; i < 5; i++) // заповнення даних структури Book
+            {
+                    B[i].name = "Name";
+                    B[i].author = "Author";
+                }
+
+                Edition[] E; // оголошення структурної змінної
+                E = new Edition[5]; // виділення пам'яті для масиву
+
+            for (int i = 0; i < 5; i++) // заповнення даних структури Edition
+                {
+                    E[i].edition_name = "Name_Edition";
+                    E[i].year = 2000 + rand.Next(21);
+                    E[i].price = 10 + rand.Next(190);
+                }
+
+                Console.WriteLine($"Книги випущенi до 2005 року"); // Ініціалізація інофрмації у консоль
+
+                int n = 0;
+                for (int i = 0; i < 5; i++)
+                {
+                    if (E[i].year < 2005)
+                    {
+                        n++;
+                        Console.WriteLine($"------------");
+                        Console.WriteLine($"Видання: {E[i].edition_name}");
+                        Console.WriteLine($"Назва: {B[i].name}");
+                        Console.WriteLine($"Автор: {B[i].author}");
+                        Console.WriteLine($"Рiк: {E[i].year}");
+                        Console.WriteLine($"Цiна: {E[i].price}$");
+                    }
+                }
+                Console.WriteLine($"\nЗагальна кiлькiсть книг що вийшли з друку пiсля 2005 року.: {n}");
+
+                Console.WriteLine($"\n\n\nПерелiк всiх книг");
+                for (int i = 0; i < 5; i++)
+                {
+                        n++;
+                        Console.WriteLine($"------------");
+                        Console.WriteLine($"Видання: {E[i].edition_name}");
+                        Console.WriteLine($"Назва: {B[i].name}");
+                        Console.WriteLine($"Автор: {B[i].author}");
+                        Console.WriteLine($"Рiк: {E[i].year}");
+                        Console.WriteLine($"Цiна: {E[i].price}$");
+                }
+
+            }
+        }
+    }
+
+
